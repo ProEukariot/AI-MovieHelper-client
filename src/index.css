@@ -1,0 +1,32 @@
+:root {
+  --radius: 8px;
+  --control-height: 2.5rem;
+  --gap-width: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+select,
+button {
+  background-color: #fff;
+  height: var(--control-height);
+  border-radius: var(--radius);
+  padding: 0 1rem;
+  border: 1px solid gray;
+  outline: 0px solid royalblue;
+  transition: all ease-in 50ms;
+}
+
+:is(input, select, button):focus {
+  outline-width: 2px;
+}
+
+select,
+button {
+  cursor: pointer;
+}
