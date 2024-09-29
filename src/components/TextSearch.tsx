@@ -5,6 +5,9 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: search;
+  background-color: var(--secondary-color);
+  padding: var(--gap-width);
+  border-radius: var(--radius);
 `;
 
 const TextSearch = () => {

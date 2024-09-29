@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-width);
-  background-color: yellow;
+  background-color: var(--secondary-color);
   grid-area: filters;
   border-radius: var(--radius);
   padding: var(--gap-width);

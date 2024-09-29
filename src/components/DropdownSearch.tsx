@@ -20,12 +20,14 @@ const StyledContainer = styled.div`
     right: 1rem;
     top: 50%;
     clip-path: polygon(0 0, 100% 0, 50% 50%);
+    background-color: var(--primary-color);
   }
 `;
 
 const StyledSelect = styled.select`
   appearance: none;
   width: 100%;
+  color: var(--primary-color);
 `;
 
 const DropdownSearch = forwardRef<HTMLSelectElement, DropdownProps>(

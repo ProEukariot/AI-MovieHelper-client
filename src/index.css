@@ -2,6 +2,11 @@
   --radius: 8px;
   --control-height: 2.5rem;
   --gap-width: 8px;
+
+  --primary-color: #433878;
+  --secondary-color: #e4b1f0;
+  --accent-color: #7e60bf;
+  --bg-color: #ffe1ff;
 }
 
 * {
@@ -10,15 +15,22 @@
   box-sizing: border-box;
 }
 
+body,
+html {
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+}
+
 input,
 select,
 button {
-  background-color: #fff;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
   height: var(--control-height);
   border-radius: var(--radius);
   padding: 0 1rem;
-  border: 1px solid gray;
-  outline: 0px solid royalblue;
+  border: 1px solid var(--primary-color);
+  outline: 0px solid var(--accent-color);
   transition: all ease-in 50ms;
 }
 

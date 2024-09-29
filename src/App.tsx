@@ -7,9 +7,9 @@ const ContainerDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  height: 100svh;
-  margin: var(--gap-width);
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 2rem 0;
 `;
 
 const App = () => {
