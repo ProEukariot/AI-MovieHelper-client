@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styled from "styled-components";
 
+export type SubmitBtnProps = {
+  disabled?: boolean;
+};
+
 const StyledContainer = styled.div`
   grid-area: action;
   display: flex;
@@ -15,8 +19,12 @@ const ActionTab = ({ children }: any) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
 
-const SubmitBtn = () => {
-  return <button type="submit">Find</button>;
+const SubmitBtn = ({ disabled = false }: SubmitBtnProps) => {
+  return (
+    <button disabled={disabled} type="submit">
+      Find
+    </button>
+  );
 };
 
 const ResetBtn = ({ reset }: { reset: any }) => {

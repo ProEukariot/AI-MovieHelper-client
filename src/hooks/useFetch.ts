@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const API_URL = "http://localhost:5000";
 
@@ -8,16 +8,30 @@ const useFetch = <T>() => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<unknown>(null);
 
-  const fetchData = async (endpoint: string, config?: AxiosRequestConfig) => {
-    try {
-      setIsLoading(true);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-      const response = await axios.get<T>(`${API_URL}${endpoint}`, config);
+  const fetchData = async (endpoint: string, config?: AxiosRequestConfig) => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    abortControllerRef.current = new AbortController();
+
+    try {
+      // setTimeout pushes setIsLoading(true) to macrotask queue, thus prev request abortion wont affect new state.
+      setTimeout(() => {
+        setIsLoading(true);
+      }, 0);
+
+      const response = await axios.get<T>(`${API_URL}${endpoint}`, {
+        ...config,
+        signal: abortControllerRef.current.signal,
+      });
 
       setData(response.data);
     } catch (err: unknown) {
       setError(err);
-      console.error(err);
+      console.error(err, "MYERR");
     } finally {
       setIsLoading(false);
     }

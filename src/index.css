@@ -34,6 +34,10 @@ button {
   transition: all ease-in 50ms;
 }
 
+:is(input, select, button)[disabled] {
+  background-color: var(--secondary-color);
+}
+
 :is(input, select, button):focus {
   outline-width: 2px;
 }
