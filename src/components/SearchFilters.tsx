@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import DropdownSearch from "./DropdownSearch";
-import { useFormContext } from "../context";
+import { useFormContext } from "../context/formContext";
 
 const mapToOptions = (arr: string[]) =>
   arr.map((value) => ({

@@ -23,7 +23,8 @@ html {
 
 input,
 select,
-button {
+button,
+a {
   color: var(--primary-color);
   background-color: var(--bg-color);
   height: var(--control-height);
@@ -32,6 +33,10 @@ button {
   border: 1px solid var(--primary-color);
   outline: 0px solid var(--accent-color);
   transition: all ease-in 50ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 :is(input, select, button)[disabled] {

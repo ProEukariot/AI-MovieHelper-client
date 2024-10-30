@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useFormContext } from "../context";
+import { useFormContext } from "../context/formContext";
 
 const StyledContainer = styled.div`
   display: flex;

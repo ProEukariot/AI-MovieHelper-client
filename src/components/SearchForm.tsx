@@ -4,7 +4,7 @@ import SearchFilters from "./SearchFilters";
 import Output from "./Output";
 import ActionTab from "./ActionTab";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { FormContext, FormFields } from "../context";
+import { FormContext, FormFields } from "../context/formContext";
 import { Movie } from "../types/Movie";
 import { useFetch } from "../hooks/useFetch";
 

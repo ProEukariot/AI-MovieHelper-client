@@ -31,7 +31,7 @@ const useFetch = <T>() => {
       setData(response.data);
     } catch (err: unknown) {
       setError(err);
-      console.error(err, "MYERR");
+      console.error(err);
     } finally {
       setIsLoading(false);
     }
