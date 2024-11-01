@@ -1,7 +1,8 @@
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 import { useRef, useState } from "react";
+import axiosInstance from "../axios/axiosInstance";
 
-const API_URL = "http://localhost:5000";
+// const API_URL = "http://localhost:5000";
 
 const useFetch = <T>() => {
   const [data, setData] = useState<T | null>(null);
@@ -23,7 +24,7 @@ const useFetch = <T>() => {
         setIsLoading(true);
       }, 0);
 
-      const response = await axios.get<T>(`${API_URL}${endpoint}`, {
+      const response = await axiosInstance.get<T>(`${endpoint}`, {
         ...config,
         signal: abortControllerRef.current.signal,
       });

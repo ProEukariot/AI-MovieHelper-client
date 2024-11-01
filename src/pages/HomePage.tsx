@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SearchForm from "../components/SearchForm";
-import Heading from "../components/Heading";
+import Header from "../components/Header";
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <>
       <ContainerDiv>
-        <Heading />
+        <Header h1="Movie Helper" h2="Let AI find movie for you" />
         <SearchForm />
       </ContainerDiv>
     </>

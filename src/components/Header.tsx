@@ -9,13 +9,15 @@ const StyledHeader = styled.h1``;
 
 const StyledSubheader = styled.h2``;
 
-const Heading = () => {
+export type HeaderProps = { h1?: string; h2?: string };
+
+const Header = ({ h1, h2 }: HeaderProps) => {
   return (
     <StyledContainer>
-      <StyledHeader>Movie Helper</StyledHeader>
-      <StyledSubheader>Let AI find movie for you.</StyledSubheader>
+      {h1 && <StyledHeader>{h1}</StyledHeader>}
+      {h2 && <StyledSubheader>{h2}</StyledSubheader>}
     </StyledContainer>
   );
 };
 
-export default Heading;
+export default Header;

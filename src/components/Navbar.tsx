@@ -1,7 +1,8 @@
 import { RootState } from "../state/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { clearAuthData } from "../state/auth/authSlice";
 
 const StyledNavbar = styled.div`
   width: 100%;
@@ -40,6 +41,12 @@ const Navbar = () => {
   const auth_url = "http://localhost:5000/api/auth/google";
   const user = useSelector((state: RootState) => state.auth.user);
 
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(clearAuthData());
+  };
+
   return (
     <StyledNavbar>
       <Container>
@@ -51,7 +58,9 @@ const Navbar = () => {
 
         {user && (
           <ActionsContainer>
-            <a href={auth_url}>Logout</a>
+            <button type="button" onClick={logout}>
+              Logout
+            </button>
             <Link to="/preferences">{`${
               user.displayName.split(" ")[0]
             }'s preferences`}</Link>
