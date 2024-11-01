@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { setAuthData } from "../state/auth/authSlice";
+import useAuth from "../hooks/useAuth";
 
 const LoginSuccess = () => {
   const [searchParams, _] = useSearchParams();
   const navigate = useNavigate();
-  const dispach = useDispatch();
+  const [user, setUser] = useAuth();
 
   useEffect(() => {
     const data = searchParams.get("data");
@@ -19,10 +18,10 @@ const LoginSuccess = () => {
 
     const parsedData = JSON.parse(atob(data!));
     console.log(parsedData);
-    dispach(setAuthData(parsedData));
+    setUser(parsedData);
 
     navigate("/");
-  });
+  }, []);
 
   return <></>;
 };

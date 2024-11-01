@@ -1,8 +1,6 @@
-import { RootState } from "../state/store";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { clearAuthData } from "../state/auth/authSlice";
+import useAuth from "../hooks/useAuth";
 
 const StyledNavbar = styled.div`
   width: 100%;
@@ -39,12 +37,11 @@ const ActionsContainer = styled.div`
 
 const Navbar = () => {
   const auth_url = "http://localhost:5000/api/auth/google";
-  const user = useSelector((state: RootState) => state.auth.user);
 
-  const dispatch = useDispatch();
+  const [user, setUser, clearUser] = useAuth();
 
   const logout = () => {
-    dispatch(clearAuthData());
+    clearUser();
   };
 
   return (

@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import styled from "styled-components";
-import ActionTab from "./ActionTab";
-import Header from "./Header";
+import ActionTab from "../components/ActionTab";
+import Header from "../components/Header";
 import { useFetch } from "../hooks/useFetch";
 import axiosInstance from "../axios/axiosInstance";
 import { useNavigate } from "react-router-dom";

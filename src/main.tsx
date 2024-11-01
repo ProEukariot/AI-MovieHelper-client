@@ -7,7 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage.tsx";
 import Root from "./pages/Root.tsx";
 import LoginSuccess from "./components/LoginSuccess.tsx";
-import Preferences from "./components/Preferences.tsx";
+import Preferences from "./pages/Preferences.tsx";
+import ProtectedRoute from "./guards/ProtectedRoute.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,14 @@ const router = createBrowserRouter([
     errorElement: <p>Error</p>,
     children: [
       { element: <HomePage />, index: true },
-      { element: <Preferences />, path: "preferences" },
+      {
+        element: (
+          <ProtectedRoute>
+            <Preferences />
+          </ProtectedRoute>
+        ),
+        path: "preferences",
+      },
       {
         path: "login",
         children: [
